@@ -112,6 +112,94 @@
               <!-- ==================== Introduction ==================== -->
               <section id="introduction">
                 <div class="wb-section">
+
+                  <style>
+                    .tldr-block {
+                      max-width: 900px;
+                      margin: 0 auto 2.5rem;
+                      padding: 2rem 2.2rem;
+                      background: linear-gradient(135deg, #fff7ed, #fffbf5, #fff);
+                      border: 1px solid #fde0c8;
+                      border-radius: 16px;
+                      text-align: left;
+                      position: relative;
+                    }
+                    .tldr-icon {
+                      margin-bottom: 0.6rem;
+                    }
+                    .tldr-headline {
+                      font-size: 1.05rem;
+                      font-weight: 400;
+                      line-height: 1.6;
+                      color: #1f2937;
+                      margin-bottom: 1rem;
+                      font-family: "Rubik", sans-serif;
+                    }
+                    .tldr-headline .bench-link {
+                      color: inherit;
+                      text-decoration: none;
+                      border-bottom: none;
+                    }
+                    .tldr-headline .bench-link sup {
+                      font-size: 0.65em;
+                      color: #f47216;
+                      margin-left: 1px;
+                    }
+                    .tldr-headline .bench-link:hover {
+                      color: #f47216;
+                    }
+                    .tldr-stats {
+                      display: flex;
+                      justify-content: center;
+                      gap: 2rem;
+                      flex-wrap: wrap;
+                    }
+                    .tldr-stat {
+                      text-align: center;
+                    }
+                    .tldr-stat-value {
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      color: #f47216;
+                    }
+                    .tldr-stat-label {
+                      font-size: 0.78rem;
+                      color: #6b7280;
+                      margin-top: 0.1rem;
+                    }
+                  </style>
+
+                  <br>
+
+                  <div class="tldr-block">
+                    <div class="tldr-icon">
+                      <span style="font-size:1.4rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#f47216;">TL;DR</span>
+                    </div>
+                    <div class="tldr-headline">
+                      <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> is the <b>first</b> latent CoT method to surpass explicit CoT &mdash; delivering state-of-the-art accuracy on <a href="https://github.com/autonomousvision/navsim" target="_blank" class="bench-link"><b>NAVSIM</b><sup><i class="fas fa-external-link-alt"></i></sup></a>, <a href="https://www.cs.cmu.edu/~roadwork/" target="_blank" class="bench-link"><b>ROADWork</b><sup><i class="fas fa-external-link-alt"></i></sup></a>, <a href="https://github.com/ahydchh/Impromptu-VLA" target="_blank" class="bench-link"><b>Impromptu</b><sup><i class="fas fa-external-link-alt"></i></sup></a>, and <a href="https://github.com/NVlabs/alpamayo" target="_blank" class="bench-link"><b>APR1</b><sup><i class="fas fa-external-link-alt"></i></sup></a> at answer-only latency, by compressing reasoning through both a language decoder and a visual world model decoder.
+                    </div>
+                    <div class="tldr-stats">
+                      <div class="tldr-stat">
+                        <div class="tldr-stat-value">88.84</div>
+                        <div class="tldr-stat-label">PDM-score (NAVSIM)</div>
+                      </div>
+                      <div class="tldr-stat">
+                        <div class="tldr-stat-value">12.49</div>
+                        <div class="tldr-stat-label">ADE in px (ROADWork)</div>
+                      </div>
+                      <div class="tldr-stat">
+                        <div class="tldr-stat-value">1.34</div>
+                        <div class="tldr-stat-label">ADE in m (Impromptu)</div>
+                      </div>
+                      <div class="tldr-stat">
+                        <div class="tldr-stat-value">2.62</div>
+                        <div class="tldr-stat-label">ADE in m (APR1)</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <br>
+
                   <div class="wb-kicker">
                     Can latent reasoning outperform explicit CoT?
                   </div>
@@ -140,12 +228,9 @@
                   </p>
 
                   <br><br>
+
                 </div>
               </section>
-
-
-
-              <!-- ==================== Architecture ==================== -->
               <section id="architecture">
                 <div class="wb-section">
 
@@ -237,7 +322,7 @@
 
                   <div class="stage-grid">
 
-                    <article class="wb-card">
+                    <article class="wb-card stage-reveal" style="transition-delay: 0s;">
                       <h3>
                         <span class="stage-num">0</span>
                         <a class="wb-anchor">Main Model Warmup</a>
@@ -248,7 +333,7 @@
                       </p>
                     </article>
 
-                    <article class="wb-card">
+                    <article class="wb-card stage-reveal" style="transition-delay: 0.15s;">
                       <h3>
                         <span class="stage-num">1</span>
                         <a class="wb-anchor">Auxiliary Decoder Warmup</a>
@@ -259,7 +344,7 @@
                       </p>
                     </article>
 
-                    <article class="wb-card">
+                    <article class="wb-card stage-reveal" style="transition-delay: 0.3s;">
                       <h3>
                         <span class="stage-num">2</span>
                         <a class="wb-anchor">Joint End-to-End Fine-tuning</a>
@@ -1035,6 +1120,18 @@
   url     = {https://Xiaomi-Embodied-Intelligence.github.io/OneVL}
 }<button class="bibtex-copy" onclick="navigator.clipboard.writeText(document.getElementById('bibtexContent').textContent.replace('Copy','').trim())">Copy</button></div>
 
+                  <div class="share-bar">
+                    <a class="share-btn twitter" href="https://twitter.com/intent/tweet?text=OneVL%3A%20First%20latent%20CoT%20to%20surpass%20explicit%20CoT%20for%20autonomous%20driving%20%E2%80%94%20SOTA%20on%204%20benchmarks%20at%20answer-only%20speed&url=https%3A%2F%2FXiaomi-Embodied-Intelligence.github.io%2FOneVL" target="_blank" rel="noopener">
+                      <i class="fab fa-twitter"></i> Share on X
+                    </a>
+                    <a class="share-btn linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2FXiaomi-Embodied-Intelligence.github.io%2FOneVL" target="_blank" rel="noopener">
+                      <i class="fab fa-linkedin"></i> Share on LinkedIn
+                    </a>
+                    <a class="share-btn reddit" href="https://reddit.com/submit?url=https%3A%2F%2FXiaomi-Embodied-Intelligence.github.io%2FOneVL&title=OneVL%3A%20First%20latent%20CoT%20to%20surpass%20explicit%20CoT%20for%20autonomous%20driving" target="_blank" rel="noopener">
+                      <i class="fab fa-reddit"></i> Share on Reddit
+                    </a>
+                  </div>
+
                   <br>
                 </div>
                 <br><br>
@@ -1149,6 +1246,69 @@
 
 
 
+        <!-- ===== Progress Bar ===== -->
+        <style>
+          .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6900, #f47216, #ea7c2b);
+            z-index: 1100;
+            width: 0%;
+            transition: width 0.05s linear;
+          }
+
+          /* ===== Stage Reveal Animation ===== */
+          .stage-reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+          }
+          .stage-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          /* ===== Share Buttons ===== */
+          .share-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0.7rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+          }
+          .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.45rem 1rem;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            font-family: "Rubik", sans-serif;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            color: #374151;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.15s, border-color 0.15s, transform 0.1s;
+          }
+          .share-btn:hover {
+            transform: translateY(-1px);
+            border-color: #d1d5db;
+            background: #f9fafb;
+          }
+          .share-btn i {
+            font-size: 0.95rem;
+          }
+          .share-btn.twitter:hover { border-color: #1da1f2; color: #1da1f2; }
+          .share-btn.linkedin:hover { border-color: #0a66c2; color: #0a66c2; }
+          .share-btn.reddit:hover { border-color: #ff4500; color: #ff4500; }
+        </style>
+
+        <div class="scroll-progress" id="scrollProgress"></div>
+
         <!-- ===== Back to Top Button ===== -->
         <style>
           .back-to-top {
@@ -1229,6 +1389,25 @@
         </div>
 
         <script>
+          // Scroll progress bar
+          const progressBar = document.getElementById('scrollProgress');
+          window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+          }, { passive: true });
+
+          // Stage reveal animation
+          const stageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              }
+            });
+          }, { threshold: 0.2 });
+          document.querySelectorAll('.stage-reveal').forEach(el => stageObserver.observe(el));
+
           // Back to top
           const backToTop = document.getElementById('backToTop');
           window.addEventListener('scroll', () => {
