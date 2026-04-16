@@ -102,6 +102,7 @@
                     <div><a href="#results">Results</a></div>
                     <div><a href="#qualitative">Qualitative</a></div>
                     <div><a href="#examples">Detailed Examples</a></div>
+                    <div><a href="#citation">Citation</a></div>
                     <div><a href="#contributors">Contributors</a></div>
                 </nav>
             </d-contents>
@@ -161,7 +162,7 @@
                   <div class="onevl-hr"></div>
 
                   <p class="wb-lead">
-                    OneVL augments a pretrained VLM with a compact latent token interface and dual auxiliary decoders for multimodal explanation.
+                    <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> augments a pretrained VLM with a compact latent token interface and dual auxiliary decoders for multimodal explanation.
                     During inference, the auxiliary decoders are discarded and all latent tokens are prefilled in a single parallel pass, matching answer-only AR prediction latency.
                   </p>
 
@@ -229,7 +230,7 @@
                   <div class="onevl-hr"></div>
 
                   <p class="wb-lead">
-                    Training OneVL presents a unique optimization challenge: the main VLM, the language auxiliary decoder, and the visual auxiliary decoder must all be jointly optimized, yet they have fundamentally different learning objectives.
+                    Training <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> presents a unique optimization challenge: the main VLM, the language auxiliary decoder, and the visual auxiliary decoder must all be jointly optimized, yet they have fundamentally different learning objectives.
                     A principled three-stage pipeline progressively aligns these components.
                   </p>
 
@@ -289,7 +290,7 @@
                   <div class="onevl-hr"></div>
 
                   <p class="wb-lead">
-                    OneVL achieves state-of-the-art performance across NAVSIM, ROADWork, Impromptu, and APR1 with a <b>4B parameter model</b>, surpassing prior 8B methods.
+                    <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> achieves state-of-the-art performance across NAVSIM, ROADWork, Impromptu, and APR1 with a <b>4B parameter model</b>, surpassing prior 8B methods.
                     Prefill inference matches answer-only prediction speed, and an MLP variant reaches <b>0.24s latency (4.16 Hz)</b> for real-world deployment.
                   </p>
 
@@ -321,6 +322,31 @@
 
                   </div>
 
+                  <br>
+
+                  <article class="wb-card" style="margin:0 auto;">
+                    <h3>
+                      <a class="wb-anchor">Towards Real-World Deployment</a>
+                    </h3>
+                    <p>
+                      By appending a compact MLP head on top of the Qwen3-VL backbone, <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> can predict trajectories in a single feed-forward pass while still exploiting multimodal latent supervision during training.
+                    </p>
+                    <div style="display:flex; justify-content:center; gap:2.5rem; margin:0.8rem 0 0.2rem; flex-wrap:wrap;">
+                      <div style="text-align:center;">
+                        <div style="font-size:1.6rem; font-weight:700; color:#f47216;">0.24s</div>
+                        <div style="font-size:0.82rem; color:#6b7280;">MLP Latency (4.16 Hz)</div>
+                      </div>
+                      <div style="text-align:center;">
+                        <div style="font-size:1.6rem; font-weight:700; color:#f47216;">86.83</div>
+                        <div style="font-size:0.82rem; color:#6b7280;">PDM-score</div>
+                      </div>
+                      <div style="text-align:center;">
+                        <div style="font-size:1.6rem; font-weight:700; color:#f47216;">5.4%</div>
+                        <div style="font-size:0.82rem; color:#6b7280;">of AR Latency</div>
+                      </div>
+                    </div>
+                  </article>
+
                   <br><br><br>
                 </div>
               </section>
@@ -337,7 +363,7 @@
                   <div class="onevl-hr"></div>
 
                   <p class="wb-lead">
-                    OneVL provides human-interpretable explanations in both language and vision.
+                    <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> provides human-interpretable explanations in both language and vision.
                     The language auxiliary decoder recovers high-quality CoT text from compressed latents, while the visual auxiliary decoder generates spatially coherent future-frame previews.
                   </p>
 
@@ -400,7 +426,7 @@
                   <div class="onevl-hr"></div>
 
                   <p class="wb-lead">
-                    OneVL consistently achieves the best accuracy across all four benchmarks while matching answer-only prediction latency. Existing latent CoT methods (COCONUT, CODI, SIM-CoT) underperform even the AR baseline, whereas OneVL surpasses explicit AR CoT at a fraction of the inference cost.
+                    <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> consistently achieves the best accuracy across all four benchmarks while matching answer-only prediction latency. Existing latent CoT methods (COCONUT, CODI, SIM-CoT) underperform even the AR baseline, whereas <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> surpasses explicit AR CoT at a fraction of the inference cost.
                   </p>
 
                   <figure style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
@@ -410,7 +436,7 @@
                   <br>
                   
                   <p class="wb-lead">
-                    On NAVSIM, OneVL achieves <b>88.84</b> PDM-score with a 4B model, surpassing 8B methods AdaThinkDrive (86.20) and LaST-VLA (87.30). Prefill inference reaches <b>4.46s</b> latency &mdash; matching answer-only prediction (4.49s) while being 32% faster than explicit AR CoT (6.58s).
+                    On NAVSIM, <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> achieves <b>88.84</b> PDM-score with a 4B model, surpassing 8B methods AdaThinkDrive (86.20) and LaST-VLA (87.30). Prefill inference reaches <b>4.46s</b> latency &mdash; matching answer-only prediction (4.49s) while being 32% faster than explicit AR CoT (6.58s).
                   </p>
 
                   <br>
@@ -550,7 +576,7 @@
                   <br>
 
                   <p class="wb-lead">
-                    On ROADWork, OneVL achieves <b>12.49</b> ADE and <b>28.80</b> FDE (pixels), significantly outperforming the previous SOTA YNet (22.68 / 80.78) and all latent CoT baselines. Inference latency is <b>4.71s</b> &mdash; faster than answer-only prediction and over 2x faster than explicit AR CoT (10.74s).
+                    On ROADWork, <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> achieves <b>12.49</b> ADE and <b>28.80</b> FDE (pixels), significantly outperforming the previous SOTA YNet (22.68 / 80.78) and all latent CoT baselines. Inference latency is <b>4.71s</b> &mdash; faster than answer-only prediction and over 2x faster than explicit AR CoT (10.74s).
                   </p>
 
                   <br>
@@ -627,7 +653,7 @@
                   <br>
 
                   <p class="wb-lead">
-                    On Impromptu, OneVL achieves <b>1.34</b> ADE and <b>3.70</b> FDE (meters), outperforming both Impromptu VLA (1.60 / 4.28) and explicit AR CoT (1.42 / 3.96). Latency is <b>4.02s</b> &mdash; faster than answer-only prediction and 41% faster than AR CoT (6.84s).
+                    On Impromptu, <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> achieves <b>1.34</b> ADE and <b>3.70</b> FDE (meters), outperforming both Impromptu VLA (1.60 / 4.28) and explicit AR CoT (1.42 / 3.96). Latency is <b>4.02s</b> &mdash; faster than answer-only prediction and 41% faster than AR CoT (6.84s).
                   </p>
 
                   <br>
@@ -704,7 +730,7 @@
                   <br>
 
                   <p class="wb-lead">
-                    On APR1, OneVL achieves <b>2.62</b> ADE (meters), the best among all methods, and <b>7.53</b> FDE, competitive with Cosmos-Reason (7.42) which uses RL-based fine-tuning. Latency is <b>3.26s</b>, faster than all latent CoT baselines.
+                    On APR1, <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> achieves <b>2.62</b> ADE (meters), the best among all methods, and <b>7.53</b> FDE, competitive with Cosmos-Reason (7.42) which uses RL-based fine-tuning. Latency is <b>3.23s</b>, faster than all latent CoT baselines.
                   </p>
 
                   <br>
@@ -771,7 +797,7 @@
                           <td><b>OneVL</b></td>
                           <td class="best">2.62</td>
                           <td class="underline">7.53</td>
-                          <td class="best">3.26</td>
+                          <td class="best">3.23</td>
                           <td>Vision + Language</td>
                         </tr>
                       </tbody>
@@ -794,7 +820,7 @@
                   <div class="onevl-hr"></div>
 
                   <p class="wb-lead">
-                    Each panel compares the AR baseline and OneVL side by side: front-view trajectory overlays, bird's-eye-view (BEV) plans, predicted future frames (T+1, T+2), and the decoded chain-of-thought reasoning.
+                    Each panel compares the AR baseline and <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> side by side: front-view trajectory overlays, bird's-eye-view (BEV) plans, predicted future frames (T+1, T+2), and the decoded chain-of-thought reasoning.
                   </p>
 
                   <style>
@@ -951,6 +977,67 @@
 
                   <br><br><br><br>
                 </div>
+              </section>
+
+
+
+              <!-- ==================== BibTeX ==================== -->
+              <section id="citation">
+                <div class="wb-section">
+
+                  <h2>Citation</h2>
+
+                  <p class="wb-lead">
+                    If you find <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> useful in your research, please consider citing our paper.
+                  </p>
+
+                  <style>
+                    .bibtex-block {
+                      max-width: 800px;
+                      margin: 1rem auto;
+                      background: #f9fafb;
+                      border: 1px solid #e5e7eb;
+                      border-radius: 10px;
+                      padding: 1.2rem 1.5rem;
+                      font-family: 'Courier New', Courier, monospace;
+                      font-size: 0.82rem;
+                      line-height: 1.6;
+                      color: #374151;
+                      overflow-x: auto;
+                      white-space: pre;
+                      position: relative;
+                    }
+                    .bibtex-copy {
+                      position: absolute;
+                      top: 0.6rem;
+                      right: 0.6rem;
+                      padding: 0.3rem 0.7rem;
+                      border-radius: 6px;
+                      border: 1px solid #d1d5db;
+                      background: #fff;
+                      font-family: "Rubik", sans-serif;
+                      font-size: 0.75rem;
+                      cursor: pointer;
+                      color: #6b7280;
+                      transition: background 0.15s, color 0.15s;
+                    }
+                    .bibtex-copy:hover {
+                      background: #f3f4f6;
+                      color: #111827;
+                    }
+                  </style>
+
+                  <div class="bibtex-block" id="bibtexContent">@article{onevl,
+  title   = {{OneVL}: One-Step Latent Reasoning and Planning with Vision-Language Explanation},
+  author  = {Jinghui Lu and Jiayi Guan and Zhijian Huang and Jinlong Li and Guang Li and Lingdong Kong and Yingyan Li and Han Wang and Shaoqing Xu and Yuechen Luo and Fang Li and Chenxu Dang and Junli Wang and Tao Xu and Jing Wu and Jianhua Wu and Xiaoshuai Hao and Wen Zhang and Tianyi Jiang and Lingfeng Zhang and Lei Zhou and Yingbo Tang and Jie Wang and Yinfeng Gao and Xizhou Bu and Haochen Tian and Yihang Qiu and Feiyang Jia and Lin Liu and Yigu Ge and Hanbing Li and Yuannan Shen and Jianwei Cui and Hongwei Xie and Bing Wang and Haiyang Sun and Jingwei Zhao and Jiahui Huang and Pei Liu and Zeyu Zhu and Yuncheng Jiang and Zibin Guo and Chuhong Gong and Hanchao Leng and Kun Ma and Naiyang Wang and Guang Chen and Kuiyuan Yang and Hangjun Ye and Long Chen},
+  journal = {arXiv preprint arXiv:2604.xxxxx},
+  year    = {2026},
+  url     = {https://Xiaomi-Embodied-Intelligence.github.io/OneVL}
+}<button class="bibtex-copy" onclick="navigator.clipboard.writeText(document.getElementById('bibtexContent').textContent.replace('Copy','').trim())">Copy</button></div>
+
+                  <br>
+                </div>
+                <br><br>
               </section>
 
 
