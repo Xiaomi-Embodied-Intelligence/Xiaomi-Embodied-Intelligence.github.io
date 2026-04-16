@@ -124,7 +124,7 @@
                     Latent CoT methods compress reasoning into hidden states to reduce latency, but consistently underperform explicit CoT &mdash; because purely linguistic latents encode symbolic abstractions, not the causal dynamics that govern driving.
                   </p>
 
-                  <figure style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
+                  <figure class="zoomable-fig" style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
                     <img src="assets/figures/paradigm.png" alt="Comparison of three CoT paradigms">
                   </figure>
 
@@ -152,7 +152,7 @@
                   <h2>Model Architecture</h2>
 
                   <!-- TODO: Replace with Fig 3 from paper (full architecture diagram) -->
-                  <figure style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
+                  <figure class="zoomable-fig" style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
                     <img src="assets/figures/onevl.png" alt="OneVL Architecture">
                   </figure>
 
@@ -429,7 +429,7 @@
                     <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> consistently achieves the best accuracy across all four benchmarks while matching answer-only prediction latency. Existing latent CoT methods (COCONUT, CODI, SIM-CoT) underperform even the AR baseline, whereas <span class="onevl-name"><span class="o1">O</span><span class="n">n</span><span class="e">e</span><span class="v">V</span><span class="l">L</span></span> surpasses explicit AR CoT at a fraction of the inference cost.
                   </p>
 
-                  <figure style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
+                  <figure class="zoomable-fig" style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
                     <img src="assets/figures/benchmark.png" alt="Accuracy and efficiency comparison across four benchmarks">
                   </figure>
 
@@ -1148,6 +1148,116 @@
         </d-article>
 
 
+
+        <!-- ===== Back to Top Button ===== -->
+        <style>
+          .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s, background 0.2s;
+            pointer-events: none;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+          }
+          .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+          }
+          .back-to-top:hover {
+            background: #f47216;
+          }
+
+          /* ===== Figure Gallery Zoom Overlay ===== */
+          .zoomable-fig {
+            cursor: zoom-in;
+          }
+          .fig-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            cursor: zoom-out;
+          }
+          .fig-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+          }
+          .fig-overlay img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+            transform: scale(0.92);
+            transition: transform 0.3s ease;
+          }
+          .fig-overlay.active img {
+            transform: scale(1);
+          }
+        </style>
+
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+
+        <div class="fig-overlay" id="figOverlay">
+          <img id="figOverlayImg" src="" alt="Zoomed figure">
+        </div>
+
+        <script>
+          // Back to top
+          const backToTop = document.getElementById('backToTop');
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+              backToTop.classList.add('visible');
+            } else {
+              backToTop.classList.remove('visible');
+            }
+          }, { passive: true });
+          backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+
+          // Figure zoom overlay
+          const overlay = document.getElementById('figOverlay');
+          const overlayImg = document.getElementById('figOverlayImg');
+          document.querySelectorAll('.zoomable-fig img').forEach(img => {
+            img.addEventListener('click', () => {
+              overlayImg.src = img.src;
+              overlay.classList.add('active');
+            });
+          });
+          overlay.addEventListener('click', () => {
+            overlay.classList.remove('active');
+          });
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') overlay.classList.remove('active');
+          });
+        </script>
 
     </body>
 </html>
